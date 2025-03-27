@@ -28,10 +28,11 @@ model User {
 model Post {
   id        String   @id @default(cuid())
   title     String
-  content   String
+  content   Json
   author    User     @relation(fields: [authorId], references: [id])
   authorId  String
   likes     PostLike[]
+  published Boolean @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

@@ -30,7 +30,8 @@ export const auth = async (
   );
 
   if (error) {
-    return res.status(401).json({ success: false, message: error.message }); // Send specific error
+    res.status(401).json({ success: false, message: error.message }); // Send specific error
+    return;
   }
 
   req.user = data;

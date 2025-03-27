@@ -2,7 +2,9 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import userRoutes from "./routes/user.route";
+import postRoutes from "./routes/post.route";
 import "./lib/env";
+import { auth } from "./middlewares/auth";
 
 const app = express();
 app.use(express.json());
@@ -15,9 +17,7 @@ app.use("/logger", (req, res, next) => {
 });
 app.use("/api/auth", userRoutes);
 
-app.get("/", (req, res) => {
-  res.json({ message: "Hello World" });
-});
+app.use("/api", auth, postRoutes);
 
 const port = process.env.PORT || 3000;
 
