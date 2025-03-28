@@ -1,7 +1,7 @@
 import { db } from "../config/db";
-import { createPostSchema } from "../schemas/post.schema";
-import z from "zod";
-type CreatePostInput = z.infer<typeof createPostSchema> & {
+import { type CreatePost } from "../schemas/post.schema";
+
+type CreatePostInput = CreatePost & {
   userId: string;
 };
 export const postService = {

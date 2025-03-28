@@ -1,9 +1,6 @@
 import { db } from "../config/db";
-import { userRegistrationSchema } from "../schemas/user.schema";
-import * as z from "zod";
+import type { UserRegistration } from "../schemas/user.schema";
 import argon2 from "argon2";
-
-type UserRegistration = z.infer<typeof userRegistrationSchema>;
 
 export const userService = {
   async createUser(data: UserRegistration) {

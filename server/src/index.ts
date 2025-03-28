@@ -17,7 +17,7 @@ app.use("/logger", (req, res, next) => {
 });
 app.use("/api/auth", userRoutes);
 
-app.use("/api", auth, postRoutes);
+app.use("/api", postRoutes);
 
 const port = process.env.PORT || 3000;
 
